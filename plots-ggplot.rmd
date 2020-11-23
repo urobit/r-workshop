@@ -8,3 +8,60 @@ output: html_document
 # Plots with ggplot2
 
 We are going to make plots in R and it's going to be amazing.
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(here)
+```
+
+```{r}
+ca_np <- read_csv(here("data", "ca_np.csv"))
+```
+
+```{r}
+ci_np <- read_excel(here("data", "ci_np.xlsx"))
+```
+
+```{r}
+summary(ci_np)
+```
+
+```{r}
+ggplot(data = ci_np, aes(x = year, y = visitors)) +
+  geom_line()
+```
+
+```{r}
+gg_base <- ggplot(data = ci_np, aes(x= year, y = visitors))
+```
+
+```{r}
+gg_base +
+  geom_line(
+  colour = "purple", 
+  linetype = "dashed"
+  )
+```
+
+```{r}
+gg_base +
+  geom_point(
+    aes(color = visitors, 
+    size = visitors),
+    alpha = 0.5
+  )
+```
+
+
+```{r}
+gg_base +
+  geom_col(
+    aes(
+      fill=visitors)
+    
+  )
+```
+
+gg_base +
+  geom_col()
