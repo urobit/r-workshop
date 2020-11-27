@@ -1,0 +1,116 @@
+---
+title: "pivot_lobsters.rmd"
+author: "trobinson"
+date: "11/25/2020"
+output: html_document
+---
+
+```{r setup}
+## attach libraries
+library(tidyverse)
+library(readxl)
+library(here)
+library(skimr) # install.packages('skimr')
+library(knitr)
+
+```
+
+``` {r skip_excel}
+## I would like to skip the top rows in this excel file
+## read in data
+lobsters <- read_xlsx(here("data/lobsters.xlsx"), skip=4)
+```
+
+``` {r}
+## taking a look, playing with the data
+skimr::skim(lobsters)
+```
+
+``` {r}
+lobsters %>%
+  group_by(year) %>%
+  summarise(count_by_year = n())
+
+```
+``` {r}
+lobsters %>%
+  group_by(site, year) %>%
+  summarize(count_by_siteyear = n())
+```
+
+``` {r}
+lobsters %>% 
+  group_by(site, year) %>% 
+  summarise(count_by_siteyear = n(), mean_size_mm = mean(size_mm))
+```
+
+``` {r}
+## here we are using na.rm=TRUE to remove all of the cells without any value
+lobsters %>%
+  group_by(site, year) %>%
+  summarize(count_by_siteyear =  n(), 
+            mean_size_mm = mean(size_mm, na.rm=TRUE), 
+            sd_size_mm = sd(size_mm, na.rm=TRUE))
+
+```
+
+``` {r}
+## take this summarization of data and give it a name. Create a variable so can recal the summarization quickly. We call it siteyear_summary
+siteyear_summary <- lobsters %>%
+  group_by(site, year) %>%
+  summarize(count_by_siteyear =  n(), 
+            mean_size_mm = mean(size_mm, na.rm=TRUE), 
+            sd_size_mm = sd(size_mm, na.rm=TRUE))
+
+```
+
+``` {r}
+## `summarise()` regrouping output by 'site' (override with `.groups` argument)
+```
+
+``` {r}
+## inspect our new variable 
+siteyear_summary
+```
+
+``` {r}
+## calculate the median lobster size for each site year. Your calculation will use the size_mm variable and function to calculate the median (Hint: ?median)
+siteyear_summary <- lobsters %>%
+  group_by(site, year) %>%
+  summarize(count_by_siteyear =  n(), 
+            mean_size_mm = mean(size_mm, na.rm=TRUE), 
+            sd_size_mm = sd(size_mm, na.rm=TRUE),
+            median_size_mm = median(size_mm, na.rm = TRUE))
+siteyear_summary
+```
+
+``` {r}
+ggplot(data = siteyear_summary, mapping = aes(x = year, y = median_size_mm, color = site)) +
+  geom_line() +
+  labs(x="year", y="Lobster Size", title = "Lobster Sizes")
+ggsave(here("figures", "lobsters_line.png"))
+```
+
+
+“There are `r nrow(lobsters)` total lobsters included in this report.”
+
+``` {r}
+## I am going to redo everything, but with a different excel file.
+## I just copied and pasted everything, but changed the variable names
+lobsters2 <- read_xlsx(here("data/lobsters2.xlsx"), skip=4)
+
+siteyear_summary2 <- lobsters2 %>%
+  group_by(site, year) %>%
+  summarize(count_by_siteyear =  n(), 
+            mean_size_mm = mean(size_mm, na.rm=TRUE), 
+            sd_size_mm = sd(size_mm, na.rm=TRUE),
+            median_size_mm = median(size_mm, na.rm = TRUE))
+siteyear_summary2
+
+ggplot(data = siteyear_summary2, mapping = aes(x = year, y = median_size_mm, color = site)) +
+  geom_line() +
+  labs(x="year", y="Lobster Size", title = "New Lobster Sizes")
+ggsave(here("figures", "lobsters_line2.png"))
+
+```
+

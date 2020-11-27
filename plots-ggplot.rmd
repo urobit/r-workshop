@@ -115,3 +115,7 @@ gg_np +
 ggsave(here("figures", "np_graph.jpg"), dpi=180, width = 8, height = 7)
 ```
 
+``` {r}
+#Here, I am adding opening the lobsters Excel file
+readxl::read_excel("data", "lobsters.xlsx")
+```
