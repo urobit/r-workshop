@@ -41,7 +41,8 @@ lobsters %>%
 ``` {r}
 lobsters %>% 
   group_by(site, year) %>% 
-  summarise(count_by_siteyear = n(), mean_size_mm = mean(size_mm))
+  summarise(count_by_siteyear = n(), 
+            mean_size_mm = mean(size_mm))
 ```
 
 ``` {r}
@@ -81,7 +82,8 @@ siteyear_summary <- lobsters %>%
             mean_size_mm = mean(size_mm, na.rm=TRUE), 
             sd_size_mm = sd(size_mm, na.rm=TRUE),
             median_size_mm = median(size_mm, na.rm = TRUE))
-siteyear_summary
+## make a table with our new variable
+siteyear_summary 
 ```
 
 ``` {r}
@@ -113,4 +115,16 @@ ggplot(data = siteyear_summary2, mapping = aes(x = year, y = median_size_mm, col
 ggsave(here("figures", "lobsters_line2.png"))
 
 ```
+``` {r}
+## Experimenting with mutate()
+## experimenting also with select()
+lobsters2 <- read_xlsx(here("data/lobsters2.xlsx"), skip=4)
 
+lobsters_detailed <- lobsters2 %>% 
+  mutate(size_m = size_mm / 1000,
+         millenia = 2000,
+         observer = "Allison Horst")
+
+lobsters_detailed %>% 
+  select(date, site, size_m)
+```
