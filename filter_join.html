@@ -247,6 +247,230 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+<script>$(document).ready(function(){
+    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+    if ($('[data-toggle="popover"]').popover === 'function') {
+        $('[data-toggle="popover"]').popover();
+    }
+});
+</script>
+<style type="text/css">
+.lightable-minimal {
+border-collapse: separate;
+border-spacing: 16px 1px;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-minimal td {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal th {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal thead tr:last-child th {
+border-bottom: 2px solid #00000050;
+empty-cells: hide;
+}
+.lightable-minimal tbody tr:first-child td {
+padding-top: 0.5em;
+}
+.lightable-minimal.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-minimal.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic {
+border-top: 0.16em solid #111111;
+border-bottom: 0.16em solid #111111;
+width: 100%;
+margin-bottom: 10px;
+margin: 10px 5px;
+}
+.lightable-classic tfoot tr td {
+border: 0;
+}
+.lightable-classic tfoot tr:first-child td {
+border-top: 0.14em solid #111111;
+}
+.lightable-classic caption {
+color: #222222;
+}
+.lightable-classic td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic thead tr:last-child th {
+border-bottom: 0.10em solid #111111;
+}
+.lightable-classic.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic-2 {
+border-top: 3px double #111111;
+border-bottom: 3px double #111111;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-classic-2 tfoot tr td {
+border: 0;
+}
+.lightable-classic-2 tfoot tr:first-child td {
+border-top: 3px double #111111;
+}
+.lightable-classic-2 caption {
+color: #222222;
+}
+.lightable-classic-2 td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic-2 th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic-2 tbody tr:last-child td {
+border-bottom: 3px double #111111;
+}
+.lightable-classic-2 thead tr:last-child th {
+border-bottom: 1px solid #111111;
+}
+.lightable-classic-2.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic-2.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #EEE;
+border-collapse: collapse;
+margin-bottom: 10px;
+}
+.lightable-material tfoot tr td {
+border: 0;
+}
+.lightable-material tfoot tr:first-child td {
+border-top: 1px solid #EEE;
+}
+.lightable-material th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+}
+.lightable-material td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+border-top: 1px solid #eeeeee;
+}
+.lightable-material.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #ddd;
+}
+.lightable-material-dark {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #FFFFFF12;
+border-collapse: collapse;
+margin-bottom: 10px;
+background-color: #363640;
+}
+.lightable-material-dark tfoot tr td {
+border: 0;
+}
+.lightable-material-dark tfoot tr:first-child td {
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF60;
+}
+.lightable-material-dark td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF;
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark.lightable-hover tbody tr:hover {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody tr:nth-child(even) {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material-dark.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #FFFFFF12;
+}
+.lightable-paper {
+width: 100%;
+margin-bottom: 10px;
+color: #444;
+}
+.lightable-paper tfoot tr td {
+border: 0;
+}
+.lightable-paper tfoot tr:first-child td {
+border-top: 1px solid #00000020;
+}
+.lightable-paper thead tr:last-child th {
+color: #666;
+vertical-align: bottom;
+border-bottom: 1px solid #00000020;
+line-height: 1.15em;
+padding: 10px 5px;
+}
+.lightable-paper td {
+vertical-align: middle;
+border-bottom: 1px solid #00000010;
+line-height: 1.15em;
+padding: 7px 5px;
+}
+.lightable-paper.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-paper.lightable-striped tbody tr:nth-child(even) {
+background-color: #00000008;
+}
+.lightable-paper.lightable-striped tbody td {
+border: 0;
+}
+</style>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -417,7 +641,314 @@ summary {
 </div>
 
 
+<pre class="r"><code># Read in data: 
+fish &lt;- read_csv(here(&quot;data&quot;, &quot;fish.csv&quot;))</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   year = col_double(),
+##   site = col_character(),
+##   common_name = col_character(),
+##   total_count = col_double()
+## )</code></pre>
+<pre class="r"><code>kelp_abur &lt;- read_excel(here(&quot;data&quot;, &quot;kelp.xlsx&quot;), sheet = &quot;abur&quot;)</code></pre>
+<pre class="r"><code>fish_garibaldi &lt;- fish %&gt;% 
+  filter(common_name == &quot;garibaldi&quot;)
 
+fish_mohk &lt;- fish %&gt;% 
+  filter(site == &quot;mohk&quot;)
+
+fish_over50 &lt;- fish %&gt;% 
+  filter(total_count &gt;= 50)
+
+fish_3sp &lt;- fish %&gt;% 
+  filter(common_name == &quot;garibaldi&quot;|
+           common_name == &quot;blacksmith&quot; |
+           common_name == &quot;black surfperch&quot;
+         )
+
+#can use %in% to filter within a variable (i.e. column)
+fish_3sp_alt &lt;- fish %&gt;% 
+  filter(common_name %in% c(&quot;garibaldi&quot;, &quot;blacksmith&quot;, &quot;black surfperch&quot;))
+
+fish_gar_2016 &lt;- fish %&gt;% 
+  filter(common_name == &quot;garibaldi&quot;|
+           year == &quot;2016&quot;
+         )
+
+fish_gar_2016</code></pre>
+<pre><code>## # A tibble: 21 x 4
+##     year site  common_name     total_count
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;                 &lt;dbl&gt;
+##  1  2016 abur  black surfperch           2
+##  2  2016 abur  blacksmith                1
+##  3  2016 abur  garibaldi                 1
+##  4  2016 abur  rock wrasse               2
+##  5  2016 abur  senorita                 58
+##  6  2016 aque  black surfperch           1
+##  7  2016 aque  blacksmith                1
+##  8  2016 aque  garibaldi                 1
+##  9  2016 aque  rock wrasse               1
+## 10  2016 aque  senorita                 57
+## # … with 11 more rows</code></pre>
+<pre class="r"><code>#filter using AND condition (&amp;)
+
+aque_2018 &lt;- fish %&gt;% 
+  filter(year == 2018, site == &quot;aque&quot;)
+
+aque_2018</code></pre>
+<pre><code>## # A tibble: 5 x 4
+##    year site  common_name     total_count
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;                 &lt;dbl&gt;
+## 1  2018 aque  black surfperch           2
+## 2  2018 aque  blacksmith                1
+## 3  2018 aque  garibaldi                 1
+## 4  2018 aque  rock wrasse               4
+## 5  2018 aque  senorita                 36</code></pre>
+<pre class="r"><code>low_gb_wr &lt;- fish %&gt;% 
+  filter(common_name == &quot;garibaldi&quot;|
+           common_name == &quot;rock wrasse&quot;) %&gt;% 
+  filter(total_count &lt;= 10)
+
+low_gb_wr</code></pre>
+<pre><code>## # A tibble: 16 x 4
+##     year site  common_name total_count
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;             &lt;dbl&gt;
+##  1  2016 abur  garibaldi             1
+##  2  2016 abur  rock wrasse           2
+##  3  2016 aque  garibaldi             1
+##  4  2016 aque  rock wrasse           1
+##  5  2016 mohk  garibaldi             2
+##  6  2017 abur  garibaldi             1
+##  7  2017 aque  garibaldi             1
+##  8  2017 aque  rock wrasse           1
+##  9  2017 mohk  garibaldi             6
+## 10  2017 mohk  rock wrasse           4
+## 11  2018 abur  garibaldi             1
+## 12  2018 abur  rock wrasse           1
+## 13  2018 aque  garibaldi             1
+## 14  2018 aque  rock wrasse           4
+## 15  2018 mohk  garibaldi            10
+## 16  2018 mohk  rock wrasse           4</code></pre>
+<pre class="r"><code>#checking my work from the above section
+
+low_gb_wr_check &lt;- fish %&gt;% 
+  filter(common_name %in% c(&quot;garibaldi&quot;, &quot;rock wrasse&quot;), 
+         total_count &lt;= 10)
+
+low_gb_wr_check</code></pre>
+<pre><code>## # A tibble: 16 x 4
+##     year site  common_name total_count
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;             &lt;dbl&gt;
+##  1  2016 abur  garibaldi             1
+##  2  2016 abur  rock wrasse           2
+##  3  2016 aque  garibaldi             1
+##  4  2016 aque  rock wrasse           1
+##  5  2016 mohk  garibaldi             2
+##  6  2017 abur  garibaldi             1
+##  7  2017 aque  garibaldi             1
+##  8  2017 aque  rock wrasse           1
+##  9  2017 mohk  garibaldi             6
+## 10  2017 mohk  rock wrasse           4
+## 11  2018 abur  garibaldi             1
+## 12  2018 abur  rock wrasse           1
+## 13  2018 aque  garibaldi             1
+## 14  2018 aque  rock wrasse           4
+## 15  2018 mohk  garibaldi            10
+## 16  2018 mohk  rock wrasse           4</code></pre>
+<pre class="r"><code>#looks like I did it a little differently by using pipe operator</code></pre>
+<pre class="r"><code>fish_bl &lt;- fish %&gt;% 
+  filter(str_detect(common_name, pattern = &quot;black&quot;))
+
+fish_it &lt;- fish %&gt;% 
+  filter(str_detect(common_name, pattern = &quot;it&quot;))
+
+fish_it</code></pre>
+<pre><code>## # A tibble: 18 x 4
+##     year site  common_name total_count
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;             &lt;dbl&gt;
+##  1  2016 abur  blacksmith            1
+##  2  2016 abur  senorita             58
+##  3  2016 aque  blacksmith            1
+##  4  2016 aque  senorita             57
+##  5  2016 mohk  blacksmith            1
+##  6  2016 mohk  senorita              4
+##  7  2017 abur  blacksmith            1
+##  8  2017 abur  senorita             64
+##  9  2017 aque  blacksmith            1
+## 10  2017 aque  senorita              1
+## 11  2017 mohk  blacksmith            8
+## 12  2017 mohk  senorita             31
+## 13  2018 abur  blacksmith            1
+## 14  2018 abur  senorita              1
+## 15  2018 aque  blacksmith            1
+## 16  2018 aque  senorita             36
+## 17  2018 mohk  blacksmith           31
+## 18  2018 mohk  senorita              4</code></pre>
+<pre class="r"><code>#practicing joining data sets
+
+abur_kelp_fish &lt;- kelp_abur %&gt;% 
+  full_join(fish, by = c(&quot;year&quot;, &quot;site&quot;)) 
+
+kelp_fish_left &lt;- kelp_abur %&gt;% 
+  left_join(fish, by = c(&quot;year&quot;,&quot;site&quot;))
+
+kelp_fish_injoin &lt;- kelp_abur %&gt;% 
+  inner_join(fish, by = c(&quot;year&quot;, &quot;site&quot;))
+
+my_fish_join &lt;- fish %&gt;% 
+  filter(year == 2017, site == &quot;abur&quot;) %&gt;% 
+  left_join(kelp_abur, by = c(&quot;year&quot;, &quot;site&quot;)) %&gt;% 
+  mutate(fish_per_frond = total_count / total_fronds)
+
+my_fish_join %&gt;% 
+  kable() %&gt;% 
+  kable_styling(bootstrap_options = &quot;striped&quot;, 
+                full_width = FALSE)</code></pre>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+year
+</th>
+<th style="text-align:left;">
+site
+</th>
+<th style="text-align:left;">
+common_name
+</th>
+<th style="text-align:right;">
+total_count
+</th>
+<th style="text-align:left;">
+month
+</th>
+<th style="text-align:right;">
+total_fronds
+</th>
+<th style="text-align:right;">
+fish_per_frond
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+abur
+</td>
+<td style="text-align:left;">
+black surfperch
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+abur
+</td>
+<td style="text-align:left;">
+blacksmith
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+abur
+</td>
+<td style="text-align:left;">
+garibaldi
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+abur
+</td>
+<td style="text-align:left;">
+rock wrasse
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+abur
+</td>
+<td style="text-align:left;">
+senorita
+</td>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
 
 
 

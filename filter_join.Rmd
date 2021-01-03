@@ -89,3 +89,30 @@ fish_it <- fish %>%
 
 fish_it
 ```
+
+``` {r}
+#practicing joining data sets
+
+abur_kelp_fish <- kelp_abur %>% 
+  full_join(fish, by = c("year", "site")) 
+
+kelp_fish_left <- kelp_abur %>% 
+  left_join(fish, by = c("year","site"))
+
+kelp_fish_injoin <- kelp_abur %>% 
+  inner_join(fish, by = c("year", "site"))
+
+my_fish_join <- fish %>% 
+  filter(year == 2017, site == "abur") %>% 
+  left_join(kelp_abur, by = c("year", "site")) %>% 
+  mutate(fish_per_frond = total_count / total_fronds)
+
+my_fish_join %>% 
+  kable() %>% 
+  kable_styling(bootstrap_options = "striped", 
+                full_width = FALSE)
+
+```
+
+#“Create awesome HTML tables with knitr::kable() and kableExtra” by Hao Zhu 
+https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html
