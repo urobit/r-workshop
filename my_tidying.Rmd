@@ -1,0 +1,89 @@
+---
+title: "my_tidying"
+author: "trobinson"
+date: "1/2/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r attach_packages}
+#Attach packages
+
+library(tidyverse)
+library(janitor)
+library(here)
+library(readxl)
+```
+
+``` {r create_object_inverts}
+#Create an object called inverts
+
+inverts <- read_excel(here("data", "inverts.xlsx"))
+
+inverts_long <- pivot_longer(data = inverts,
+                             cols = '2016':'2018',
+                             names_to = "year",
+                             values_to = "sp_count")
+inverts_long
+```
+
+``` {r}
+class(inverts_long$year)
+```
+
+``` {r}
+# change "year" class to numeric:
+
+inverts_long <- inverts_long %>% 
+  mutate(year = as.numeric(year))
+inverts_long
+class(inverts_long$year)
+```
+
+``` {r}
+inverts_wide <- inverts_long %>% 
+  pivot_wider(names_from = common_name,
+              values_from = sp_count)
+
+#unse janitor to clean the column names
+
+inverts_wide <- inverts_wide %>%
+  clean_names()
+inverts_wide
+```
+
+``` {r}
+#playing with unite
+#task is create a new object and combine the columns 
+
+inverts_moyr <- inverts_long %>% 
+  unite(col = "mo_yr", 
+        c(month, year),
+        sep = "/")
+inverts_moyr
+```
+
+``` {r}
+
+inverts_sep <- inverts_moyr %>% 
+  separate(mo_yr, into = c("my_mo", "my_yr"))
+
+inverts_sep
+
+```
+
+``` {r}
+#replace "California" with "CA"
+
+ca_abbr <- inverts_moyr %>% 
+  mutate(
+    common_name =
+      str_replace(common_name,
+                  pattern = "california",
+                  replacement = "CA")
+  )
+ca_abbr
+```
