@@ -1,0 +1,91 @@
+---
+title: "filter_join"
+author: "trobinson"
+date: "1/3/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(readxl)
+library(here) 
+library(kableExtra)
+
+```
+
+``` {r}
+
+# Read in data: 
+fish <- read_csv(here("data", "fish.csv"))
+kelp_abur <- read_excel(here("data", "kelp.xlsx"), sheet = "abur")
+
+```
+``` {r}
+fish_garibaldi <- fish %>% 
+  filter(common_name == "garibaldi")
+
+fish_mohk <- fish %>% 
+  filter(site == "mohk")
+
+fish_over50 <- fish %>% 
+  filter(total_count >= 50)
+
+fish_3sp <- fish %>% 
+  filter(common_name == "garibaldi"|
+           common_name == "blacksmith" |
+           common_name == "black surfperch"
+         )
+
+#can use %in% to filter within a variable (i.e. column)
+fish_3sp_alt <- fish %>% 
+  filter(common_name %in% c("garibaldi", "blacksmith", "black surfperch"))
+
+fish_gar_2016 <- fish %>% 
+  filter(common_name == "garibaldi"|
+           year == "2016"
+         )
+
+fish_gar_2016
+
+```
+
+``` {r}
+#filter using AND condition (&)
+
+aque_2018 <- fish %>% 
+  filter(year == 2018, site == "aque")
+
+aque_2018
+
+low_gb_wr <- fish %>% 
+  filter(common_name == "garibaldi"|
+           common_name == "rock wrasse") %>% 
+  filter(total_count <= 10)
+
+low_gb_wr
+
+```
+
+``` {r}
+#checking my work from the above section
+
+low_gb_wr_check <- fish %>% 
+  filter(common_name %in% c("garibaldi", "rock wrasse"), 
+         total_count <= 10)
+
+low_gb_wr_check
+
+#looks like I did it a little differently by using pipe operator
+```
+
+```{r}
+fish_bl <- fish %>% 
+  filter(str_detect(common_name, pattern = "black"))
+
+fish_it <- fish %>% 
+  filter(str_detect(common_name, pattern = "it"))
+
+fish_it
+```
